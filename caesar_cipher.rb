@@ -1,6 +1,3 @@
-# two arrays of all caps and all lowercase letters
-# if letter from inputted argument matches one of those arrays, shift based on the cipher to new index
-
 def caesar_cipher(string, shift)
   encoded = ""
   string.each_char do |char|
@@ -25,3 +22,11 @@ shift = gets.to_i
 
 puts "Encrypted Code:"
 puts caesar_cipher(input, shift)
+
+
+# Wrap around logic explanation:
+# 
+# char.ord + shift = spaces shifted from the given char
+# (char.ord + shift) - 'a'.ord = handles wrap-around
+# ((char.ord + shift) - 'a'.ord) % 26 = spaces shifted from 'a'
+# Adding back 'a'.ord || 'A'.ord is shifting from the starting point of 'a' or 'A'
